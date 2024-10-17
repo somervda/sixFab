@@ -146,3 +146,17 @@ class Bg95m3:
         not self.quiet and print("Bg95m3 powerOff")
         self.picoLTE.base.power_off()
 
+    def check_apn(self):
+        result = self.picoLTE.network.check_apn()
+        print("check_apn:", result)
+
+    def check_network_registration(self):
+        result = self.picoLTE.network.check_network_registration()
+        print("check_network_registration:", result)
+
+    def check_pdp_context_status(self):
+        result = self.picoLTE.network.check_pdp_context_status()
+        print("check_pdp_context_status", result)
+
+
+
