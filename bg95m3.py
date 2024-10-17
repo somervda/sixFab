@@ -47,6 +47,7 @@ class Bg95m3:
             # 3: Registration denied.
             # 4: Unknown. For example, out of range.
             # 5: Registered, roaming. The device is registered on a foreign (national or international) network.
+            not self.quiet and print( "Registering Network...")
             result = self.picoLTE.network.register_network()
             not self.quiet and print( "Register Network", result)
             if result["status"] != Status.SUCCESS :
