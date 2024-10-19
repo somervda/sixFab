@@ -16,18 +16,22 @@ while True:
         # print("rssi:",bg95m3.getRSSI())
         # print(bg95m3.getLocation())
         if bg95m3.lteConnect() == None:
+            print("*** Registration failed!")
             bg95m3.factory_reset()
+            print("Power off")
+            bg95m3.powerOff()
         else:
+            print("*** Registration worked")
             bg95m3.check_apn()
             bg95m3.check_network_registration()
             bg95m3.check_pdp_context_status()
             print("rssi:",bg95m3.getRSSI())
+            print("Power off")
+            bg95m3.powerOff()
             break
-        print("Power off")
-        bg95m3.powerOff()
     print("Sleeping...")
     time.sleep(60)
-del bg95m3
+
 
 
 
