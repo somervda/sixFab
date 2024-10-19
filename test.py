@@ -22,6 +22,7 @@ while True:
             bg95m3.powerOff()
         else:
             print("*** Registration worked")
+            bg95m3.get_available_networks()
             bg95m3.check_apn()
             bg95m3.check_network_registration()
             bg95m3.check_pdp_context_status()
