@@ -15,16 +15,14 @@ while True:
         # print("send:",result)
         # print("rssi:",bg95m3.getRSSI())
         # print(bg95m3.getLocation())
-        print("rssi:",bg95m3.getRSSI())
-        bg95m3.check_apn()
-        bg95m3.check_network_registration()
-        bg95m3.check_pdp_context_status()
-        bg95m3.lteConnect()
-        bg95m3.check_apn()
-        bg95m3.check_network_registration()
-        bg95m3.check_pdp_context_status()
-        print("rssi:",bg95m3.getRSSI())
-
+        if bg95m3.lteConnect() == None:
+            bg95m3.factory_reset()
+        else:
+            bg95m3.check_apn()
+            bg95m3.check_network_registration()
+            bg95m3.check_pdp_context_status()
+            print("rssi:",bg95m3.getRSSI())
+            break
         print("Power off")
         bg95m3.powerOff()
     print("Sleeping...")

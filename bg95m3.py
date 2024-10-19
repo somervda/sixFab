@@ -158,5 +158,14 @@ class Bg95m3:
         result = self.picoLTE.network.check_pdp_context_status()
         print("check_pdp_context_status", result)
 
+    def factory_reset(self):
+        not self.quiet and print("Factory Reset...")
+        command = "AT+CSQ"
+        result = self.picoLTE.atcom.send_at_comm(command)
+        not self.quiet and print( "Reset AT to factory", result)
+        if result["status"] != Status.SUCCESS :
+            print("Error: Reset AT to factory", result)
+            return None
+
 
 
